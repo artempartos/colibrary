@@ -35,6 +35,7 @@ gem 'draper'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'rails-observers'
+gem 'haml-rails'
 
 gem 'rolify', github: 'EppO/rolify'
 gem 'authority'
