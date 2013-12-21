@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  validates :email, presence: true, uniqueness: true, email: true
   has_secure_password
 
   state_machine initial: :inactive do

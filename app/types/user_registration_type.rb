@@ -1,6 +1,5 @@
 class UserRegistrationType < User
   include ApplicationType
-  validates :email, presence: true, uniqueness: true, email: true
 
   validates :password, presence: true, confirmation: true
   validates :password_confirmation, presence: true

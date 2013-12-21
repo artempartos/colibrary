@@ -3,6 +3,10 @@ FactoryGirl.define do
     "string-#{n}"
   end
 
+  sequence :email do |n|
+    "#{n}-#{Faker::Internet.email}"
+  end
+
   sequence :text do |n|
     Faker::Lorem.paragraph
   end
