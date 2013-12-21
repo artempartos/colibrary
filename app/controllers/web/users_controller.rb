@@ -9,15 +9,21 @@ class Web::UsersController < Web::ApplicationController
     @user.assign_attributes(params[:user])
     @user.generate_confirmation_token
     if @user.save
+      f(:success)
       redirect_to root_path
     else
+      f(:error)
       render :new
     end
   end
 
   def confirm
     @user = User.where(params.extract(:confirmation_token)).find(params[:id])
-    @user.confirm
+    if @user.confirm
+      f(:success)
+    else
+      f(:error)
+    end
     redirect_to root_path
   end
 end
