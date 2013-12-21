@@ -15,5 +15,6 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include Concerns::AuthManagement
   config.order = "random"
 end

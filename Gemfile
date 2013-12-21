@@ -36,6 +36,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'rails-observers'
 gem 'haml-rails'
+gem 'mail_view'
 
 gem 'rolify', github: 'EppO/rolify'
 gem 'authority'
@@ -84,5 +85,4 @@ group :test, :development do
   gem 'ffaker'
   gem 'pry'
   gem 'pry-nav'
-  gem 'spring'
 end

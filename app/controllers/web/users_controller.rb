@@ -9,6 +9,7 @@ class Web::UsersController < Web::ApplicationController
     @user.assign_attributes(params[:user])
     @user.generate_confirmation_token
     if @user.save
+      UserMailer.confirmation_instructions(@user).deliver
       f(:success)
       redirect_to root_path
     else
