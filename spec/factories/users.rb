@@ -6,5 +6,15 @@ FactoryGirl.define do
     first_name Faker::Name.first_name
     second_name Faker::Name.name
     last_name Faker::Name.last_name
+    password { generate :string }
+    password_confirmation { password }
+
+    factory :requested_user do
+      confirmation_token { generate :confirmation_token }
+    end
+
+    factory :base_user do
+      state :active
+    end
   end
 end
