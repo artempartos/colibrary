@@ -1,0 +1,56 @@
+-
+  hosts: vagrant
+
+  roles:
+    - shared
+
+  vars:
+    postgresql:
+      version: 9.1
+      password: postgres
+    database: library_development
+
+  tasks:
+
+    -
+      name: install packages
+      apt: pkg={{ item }} state=installed update_cache=yes
+      sudo: true
+      with_items:
+       - python-psycopg2
+       - postgresql-{{postgresql.version}}
+       - libpq-dev
+
+    -
+      name: install RVM and Ruby
+      shell: curl -sSL https://get.rvm.io | bash -s stable --ruby --autolibs=enabled creates=~/.rvm/bin/ruby
+
+    -
+      name: update postgres client configuration
+      sudo: true
+      copy: src=files/pg_hba.conf dest=/etc/postgresql/{{postgresql.version}}/main/pg_hba.conf
+      notify:
+        - restart postgresql
+
+    -
+      meta: flush_handlers
+
+    -
+      name: create postgresql user postgres
+      postgresql_user:
+        name=postgres
+        password={{ postgresql.password}}
+
+    -
+      name: create dev db
+      postgresql_db:
+        name={{ database }}
+
+  handlers:
+    -
+      name: restart postgresql
+      sudo: true
+      service: name=postgresql state=restarted
+
+
+
