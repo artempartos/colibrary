@@ -13,4 +13,13 @@ class User < ActiveRecord::Base
       transition :active => :inactive
     end
   end
+
+  def generate_confirmation_token
+    self.confirmation_token = SecureRandom.urlsafe_base64
+  end
+
+  def confirm
+    assign_attributes(confirmation_token: nil)
+    activate
+  end
 end
