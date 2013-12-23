@@ -10,6 +10,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
+
+  #Ansible for Debian Squeeze 6
+  #http://ergonlogic.com/files/boxes/debian-current.box
   config.vm.box = "debian"
 
   # The url from where the 'config.vm.box' box will be fetched if it
@@ -33,7 +36,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # If true, then any SSH connections made will enable agent forwarding.
   # Default value: false
-  # config.ssh.forward_agent = true
+  config.ssh.forward_agent = true
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
@@ -82,7 +85,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :ansible do |ans|
     ans.playbook = "provisioning/site.yml"
     ans.inventory_path = "provisioning/develop"
-    #ans.verbose = "vvvv"
+    ans.verbose = "vv"
   end
 
   # Enable provisioning with chef solo, specifying a cookbooks path, roles

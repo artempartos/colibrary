@@ -2,13 +2,14 @@
   hosts: vagrant
 
   roles:
+    - debian
     - shared
 
   vars:
     postgresql:
-      version: 9.1
+      version: 9.3
       password: postgres
-    database: library_development
+    database: colibrary_development
 
   tasks:
 
@@ -23,7 +24,7 @@
 
     -
       name: install RVM and Ruby
-      shell: curl -sSL https://get.rvm.io | bash -s stable --ruby --autolibs=enabled creates=~/.rvm/bin/ruby
+      shell: curl -sSL https://get.rvm.io | bash -s stable --ruby --autolibs=enabled creates=~/home/vagrant/.rvm/rubies
 
     -
       name: update postgres client configuration
@@ -51,6 +52,3 @@
       name: restart postgresql
       sudo: true
       service: name=postgresql state=restarted
-
-
-
