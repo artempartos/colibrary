@@ -10,13 +10,13 @@ set :log_level, :debug
 set :use_sudo, false
 
 #raise fetch(:bundle_bins).inspect
-#set :bundle_bins, fetch(:bundle_bins, []) - ['rake']
+set :bundle_bins, fetch(:bundle_bins, []) - ['rake']
 
 
 #set :rvm_path, RVM_SYSTEM_PATH
 set :rvm_ruby_version, 'ruby-1.9.3-p327'
 
-set :pty, true
+#set :pty, true
 
 # https://help.github.com/articles/using-ssh-agent-forwarding
 # use "ssh-add ~/.ssh/id_rsa"
@@ -30,7 +30,7 @@ set :linked_dirs, %w{public/system log public/assets bin}
 
 set :bundle_binstubs, -> { shared_path.join('bin') }
 
-set :bundle_bins, fetch(:bundle_bins, []) + shared_path.join('bin')
+#set :bundle_bins, fetch(:bundle_bins, []) + shared_path.join('bin')
 
 namespace :deploy do
 
