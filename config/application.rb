@@ -20,6 +20,7 @@ module Colibrary
     config.time_zone = 'Moscow'
     config.i18n.default_locale = :ru
     config.i18n.fallbacks = true
+    I18n.enforce_available_locales = true
     config.i18n.available_locales = %w[ru en]
     config.generators do |g|
       g.test_framework :rspec, fixture: true

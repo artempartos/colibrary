@@ -74,6 +74,10 @@ end
 
 group :development do
   gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+
   gem 'pry-rails'
   gem 'pre-commit'
   gem 'quiet_assets'
