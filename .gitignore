@@ -16,4 +16,8 @@
 /tmp
 .idea/
 /config/database.yml
-.vagrant/
+
+# Ignore vagrant files
+/.vagrant
+/vagrant_ansible_inventory_default
+/Vagrantfile
