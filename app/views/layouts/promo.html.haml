@@ -1,0 +1,12 @@
+!!! 5
+%html(lang="en")
+  %head= render "shared/head"
+  %body
+    = render "shared/navbar"
+    .container
+      .row
+        .col-lg-12
+          = bootstrap_flash
+          = yield
+      %footer
+        %p &copy; Company #{Time.now.year}

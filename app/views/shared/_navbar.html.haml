@@ -1,0 +1,10 @@
+%header.navbar.navbar-default(role="navigation")
+  .container
+    .navbar-header
+      %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to "CoLibrary", root_path, class: "navbar-brand"
+    .navbar-collapse.collapse.navbar-responsive-collapse
+      = render "shared/navbar/#{signed_in? ? 'user' : 'guest' }"
