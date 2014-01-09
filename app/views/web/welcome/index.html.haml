@@ -1,1 +1,7 @@
-%h1 Welcome to CoLibrary!
+.jumbotron.text-center
+  %h1 Welcome to CoLibrary!
+  %p About text
+  %p
+    - with_options class: "btn btn-primary btn-lg", role: "button" do |f|
+      = f.link_to_if signed_in?, "Dashboard", "#" do
+        = f.link_to "Sign Up", new_user_path
