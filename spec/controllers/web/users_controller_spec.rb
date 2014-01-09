@@ -11,12 +11,14 @@ describe Web::UsersController do
 
   describe "POST 'create'" do
     it "returns http success" do
-      attrs = attributes_for :user
+      company_attributes = attributes_for :company
+      attrs = attributes_for :user, companies_attributes: {"0" => company_attributes}
       post :create, user: attrs
       expect(response).to be_redirect
 
       user = User.where(email: attrs[:email]).first
       expect(user).to be_present
+      expect(user.companies).to have(1).items
     end
   end
 

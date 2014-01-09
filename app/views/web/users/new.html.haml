@@ -4,6 +4,8 @@
       .panel-body
         %h5.text-center= t('.title')
         = simple_form_for @user do |f|
+          = f.simple_fields_for :companies do |company_form|
+            = company_form.input :name
           = f.input :email
           = f.input :password
           = f.input :password_confirmation

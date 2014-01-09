@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true, email: true
+  has_many :employees, inverse_of: :user
+  has_many :companies, through: :employees
+
   has_secure_password
   include UserRepository
 

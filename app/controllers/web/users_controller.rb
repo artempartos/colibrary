@@ -1,6 +1,7 @@
 class Web::UsersController < Web::ApplicationController
   def new
     @user = UserRegistrationType.new
+    @user.companies.build
     respond_with @user
   end
 
@@ -9,7 +10,7 @@ class Web::UsersController < Web::ApplicationController
     @user.assign_attributes(params[:user])
     @user.generate_confirmation_token
     if @user.save
-      UserMailer.confirmation_instructions(@user).deliver
+      # UserMailer.confirmation_instructions(@user).deliver
       f(:success)
       redirect_to root_path
     else
