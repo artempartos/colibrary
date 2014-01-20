@@ -4,4 +4,6 @@
   %p
     - with_options class: "btn btn-primary btn-lg", role: "button" do |f|
       = f.link_to_if signed_in?, "Dashboard", "#" do
-        = f.link_to "Sign Up", new_user_path
+        = f.link_to t(".sign_up"), new_user_path
+        = t('.or')
+        = f.link_to t(".sign_in"), new_session_path
