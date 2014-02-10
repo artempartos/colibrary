@@ -2,13 +2,7 @@
 %html(lang="en")
   %head= render "shared/head"
   %body
-    %nav.navbar.navbar-default
-      .container
-        %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        %a.navbar-brand(href="#{root_path}") CoLibrary
+    = render "shared/navbar"
 
     .container
       .row
@@ -16,4 +10,4 @@
           = bootstrap_flash
           = yield
       %footer
-        %p &copy; Company #{Time.now.year}
+        %p &copy; CoLibrary, #{Time.now.year}
