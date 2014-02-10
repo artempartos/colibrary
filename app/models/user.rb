@@ -27,4 +27,8 @@ class User < ActiveRecord::Base
     assign_attributes(confirmation_token: nil)
     activate
   end
+
+  def guest?
+    false
+  end
 end
