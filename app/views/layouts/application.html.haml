@@ -4,10 +4,18 @@
   %body
     = render "shared/navbar"
 
-    .container
-      .row
-        .col-lg-12
-          = bootstrap_flash
-          = yield
+    #wrapper
+      #sidebar-wrapper
+        %ul#sidebar_menu.sidebar-nav
+          %li.sidebar-brand
+            %a#menu-toggle{href: "#"}
+              Menu
+              %span#main_icon.glyphicon.glyphicon-th-large
+        = render 'shared/sidebar_menu'
+      #page-content-wrapper
+        .page-content.inset
+          .row
+            .col-md-12
+              = yield
       %footer
         %p &copy; CoLibrary, #{Time.now.year}

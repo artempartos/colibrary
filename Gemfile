@@ -46,8 +46,7 @@ gem 'state_machine'
 gem 'term-ansicolor'
 gem 'virtus'
 gem 'simple_form'
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem "twitter-bootstrap-rails", github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
+gem 'bootstrap-sass', '~> 3.1.0'
 
 gem 'ransack'
 
