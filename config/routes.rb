@@ -3,7 +3,6 @@ Colibrary::Application.routes.draw do
     root to: 'welcome#index'
 
     scope :profile, as: :profile do
-      root to: 'dashboard#index'
     end
 
     resource :session, only: [:new, :create, :destroy]
