@@ -15,7 +15,7 @@ class CoverUploader < CarrierWave::Uploader::Base
   end
 
   def store_dir
-    "uploads/#{model.company.id}/covers/#{model.id}"
+    "/system/uploads/#{model.company.id}/covers/#{model.id}"
   end
 
   def filename
