@@ -14,4 +14,9 @@ FactoryGirl.define do
   sequence :confirmation_token, aliases: [:uid] do |n|
     SecureRandom.urlsafe_base64
   end
+
+  sequence :isbn do |n|
+    "000-0-00000-000-0"
+    [rand(100...999), rand(9), rand(10000...99999), rand(100...999), rand(9)].join('-')
+  end
 end

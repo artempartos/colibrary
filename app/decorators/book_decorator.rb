@@ -1,0 +1,3 @@
+class BookDecorator < ApplicationDecorator
+  
+end

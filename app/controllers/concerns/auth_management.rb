@@ -21,6 +21,11 @@ module Concerns
       @current_user ||= User.active.where(id: session[:user_id]).first || Guest.new
     end
 
+    # TODO: Add change current company
+    def current_company
+      current_user.companies.first
+    end
+
     def authenticate_user!
       redirect_to new_session_path unless signed_in?
     end

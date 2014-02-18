@@ -3,5 +3,8 @@
 FactoryGirl.define do
   factory :book do
     company nil
+    isbn { generate :isbn }
+    title { generate :string }
+    publisher { generate :string }
   end
 end

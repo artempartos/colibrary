@@ -8,6 +8,9 @@ FactoryGirl.define do
     last_name Faker::Name.last_name
     password { generate :string }
     password_confirmation { password }
+    companies do |a|
+      [a.association(:company)]
+    end
 
     factory :requested_user do
       confirmation_token { generate :confirmation_token }

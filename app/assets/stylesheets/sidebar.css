@@ -48,6 +48,10 @@
   width: 100%;
 }
 
+.page-content {
+  padding-top: 20px;
+}
+
 #sidebar_menu li a, .sidebar-nav li a {
     color: #999;
     display: block;
