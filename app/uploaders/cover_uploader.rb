@@ -11,11 +11,11 @@ class CoverUploader < CarrierWave::Uploader::Base
   # storage :fog
 
   version :thumb do
-    process resize_to_fill: [250, 250]
+    process resize_to_fit: [250, 250]
   end
 
   def store_dir
-    "/system/uploads/#{model.company.id}/covers/#{model.id}"
+    "system/uploads/#{model.company.id}/covers/#{model.id}"
   end
 
   def filename

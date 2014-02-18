@@ -1,28 +1,4 @@
 -
-  name: add postgres source list key
-  sudo: true
-  apt_key: url=https://www.postgresql.org/media/keys/ACCC4CF8.asc
-
--
   name: correct source.list
   sudo: true
   copy: src=files/sources.list dest=/etc/apt/sources.list
-
--
-  name: install needed packages
-  apt: pkg={{ item }} state=installed update_cache=yes
-  sudo: true
-  with_items:
-   - locate
-
--
-  name: update debian db
-  sudo: true
-  shell: updatedb
-
-
-
-
-
-
-

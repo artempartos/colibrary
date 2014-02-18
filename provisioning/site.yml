@@ -3,12 +3,12 @@
   hosts: all
 
   roles:
-    - debian
+    #- debian
     - shared
 
   vars:
     postgresql:
-      version: 9.3
+      version: 9.1
       password: postgres
     database: library_development
     proxy_env:
@@ -20,7 +20,7 @@
 
     -
       name: install packages
-      apt: pkg={{ item }} state=installed update_cache=yes
+      apt: pkg={{ item }} state=installed update_cache=yes force=yes
       sudo: true
       environment: proxy_env
       with_items:
@@ -29,6 +29,7 @@
        - python-apt
        - postgresql-{{postgresql.version}}
        - libpq-dev
+       - imagemagick
 
     -
       name: install RVM and Ruby

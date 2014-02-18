@@ -17,6 +17,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # for vagrant-exec plugin
   config.exec.root = "/vagrant"
-  config.exec.prepend_with "bundle exec", only: %w(rails rake unicorn tconsole)
+  config.exec.prepend_with "bundle exec", only: %w(spring rails rake unicorn)
   config.exec.prepend_with "USER=Kirillov bundle exec", only: %w(cap)
 end

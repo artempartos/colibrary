@@ -33,7 +33,7 @@ gem 'validates'
 
 gem 'draper'
 gem 'carrierwave'
-gem 'mini_magick'
+gem 'mini_magick', '~> 3.5.0'
 gem 'rails-observers'
 gem 'haml-rails'
 gem 'mail_view'
@@ -69,6 +69,8 @@ gem 'unicorn'
 
 group :test do
   gem 'test_after_commit'
+  gem "spring-commands-rspec"
+  gem "spring-commands-cucumber"
 end
 
 group :development do
@@ -77,15 +79,14 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
 
-  gem 'pry-rails'
   gem 'pre-commit'
   gem 'quiet_assets'
+  gem 'spring'
 end
 
 group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'ffaker'
-  gem 'pry'
-  gem 'pry-nav'
+  gem 'jazz_hands'
 end

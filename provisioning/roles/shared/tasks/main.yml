@@ -1,9 +1,8 @@
 -
   name: install packages
-  apt: pkg={{ item }} state=installed update_cache=yes
+  apt: pkg={{ item }} state=installed update_cache=yes force=yes
   sudo: true
   with_items:
    - curl
    - vim
    - git
-   - runit
