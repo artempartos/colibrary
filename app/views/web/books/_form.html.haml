@@ -1,6 +1,10 @@
 .col-sm-6.col-md-6
   = simple_form_for book do |f|
     = f.input :title
+    = image_tag book.cover.url if book.cover?
+    = f.input :remove_cover, as: :boolean
+    = f.input :cover, as: :file
+    = f.input :cover_cache, as: :hidden
     = f.input :isbn
     = f.input :details
     = f.input :publisher
