@@ -11,7 +11,7 @@ class CoverUploader < CarrierWave::Uploader::Base
   # storage :fog
 
   version :thumb do
-    process resize_to_fit: [250, 250]
+    process resize_to_fit: [134, 200]
   end
 
   def store_dir
@@ -24,7 +24,7 @@ class CoverUploader < CarrierWave::Uploader::Base
 
   def default_url
     #"/images/fallback/" + [version_name, "default.png"].compact.join('_')
-    "http://placehold.it/460x250/e67e22/ffffff&text=Blank%20Cover"
+    "http://placehold.it/134x200/e67e22/ffffff&text=Blank%20Cover"
   end
 
   protected

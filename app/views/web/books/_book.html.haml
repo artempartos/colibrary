@@ -1,15 +1,10 @@
-.col-sm-4.col-md-4
-  .book
-    .book-img-content
-      =# image_tag "http://placehold.it/460x250/e67e22/ffffff&text=HTML5", class: "img-responsive"
-      = image_tag book.cover.url, class: "img-responsive"
-      %span.book-title
-        %b= book.title
-    .content
-      .author
-        %b TODO: Add Author
-        %time= l(book.created_at, format: :long)
-      .description= book.details
-    .btn-group
-      = link_to t('.show'), book_path(book), class: "btn btn-warning btn-sm"
-      = link_to t('.edit'), edit_book_path(book), class: "btn btn-warning btn-sm"
+.col-md-10.blogShort
+  %h1= book.title
+  = image_tag book.cover.url, class: "pull-left img-responsive thumb margin10 img-thumbnail"
+  %em
+    TODO: Add Author
+    %time= l(book.created_at, format: :long)
+  %article
+    %p= book.details
+  = link_to t('.show'), book_path(book), class: "btn btn-blog pull-right marginBottom10"
+  = link_to t('.edit'), edit_book_path(book), class: "btn btn-blog pull-right marginBottom10"
