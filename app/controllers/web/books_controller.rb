@@ -16,7 +16,7 @@ class Web::BooksController < Web::ApplicationController
     @book.owner = current_user
     @book.assign_attributes(params[:book])
     @book.save
-    respond_with @book
+    respond_with @book, location: books_path
   end
 
   def show
@@ -33,7 +33,7 @@ class Web::BooksController < Web::ApplicationController
     @book = current_company.books.find(params[:id]).becomes(ManageBooksType)
     @book.assign_attributes(params[:book])
     @book.save
-    respond_with @book
+    respond_with @book, location: books_path
   end
 
   def destroy
