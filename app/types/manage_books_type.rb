@@ -1,7 +1,6 @@
 class ManageBooksType < Book
   include ApplicationType
-  validates :title, presence: true
+  validates :title, :author, presence: true
 
-  permit :isbn, :title, :publisher, :cover, :remove_cover, :details
-  
+  permit :author, :cover, :details, :isbn, :publisher, :remove_cover, :title
 end
